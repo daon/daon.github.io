@@ -1,0 +1,22 @@
+language: node_js
+node_js:
+  - "8"
+
+before_install:
+  - npm i -g npm@latest
+  - npm install -g yarn --cache-min 999999999
+
+install:
+  - npm install
+
+script:
+  - npm run build
+
+deploy:
+  provider: pages
+  skip_cleanup: true
+  github_token: $GITHUB_TOKEN
+  on:
+    branch: dev
+  local_dir: public
+  target_branch: master
