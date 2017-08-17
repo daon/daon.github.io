@@ -19,7 +19,7 @@
   "main": "n/a",
   "scripts": {
     "clean": "del-cli \"public/**/*\" \".cache/**/*\"",
-    "build": "gatsby build --prefix-paths",
+    "build": "gatsby build",
     "predeploy": "npm run clean && npm run build",
     "deploy": "gh-pages -d public -b master",
     "develop": "gatsby develop",
