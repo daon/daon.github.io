@@ -10,7 +10,10 @@
     "gatsby-plugin-react-helmet": "^1.0.2",
     "gatsby-source-filesystem": "^1.4.2",
     "gatsby-transformer-remark": "^1.7.0",
-    "global": "^4.3.2"
+    "global": "^4.3.2",
+    "react-typography": "^0.16.1",
+    "typography": "^0.16.0",
+    "typography-plugin-code": "^0.15.11"
   },
   "keywords": [
     "gatsby"
@@ -28,6 +31,7 @@
   },
   "devDependencies": {
     "del-cli": "^1.1.0",
+    "gatsby-plugin-styled-components": "^1.0.2",
     "gh-pages": "^1.0.0",
     "prettier": "^1.5.2"
   }
