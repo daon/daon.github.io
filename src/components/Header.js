@@ -2,7 +2,7 @@ import React, { PureComponent } from 'react';
 import Link from 'gatsby-link';
 import styled, { keyframes } from 'styled-components';
 
-import headerImage from '../images/vincent-guth-183404.jpg';
+import headerImage from '../images/christopher-gower-291246.jpg';
 import profileImage from '../images/profile.jpg';
 import logoImage from '../images/logo.png';
 
@@ -16,29 +16,42 @@ const fadeIn = keyframes`
 `;
 
 const StyledHeader = styled.header`
-    background-color: #3c3c3c;
+    background-color: rgba(60, 60, 60, 1);
     background-image: url(${headerImage});
     background-size: cover;
     background-repeat: none;   
     background-position: center;
+    font-family: "Lato", sans-serif;
     display: flex;
     align-items: center;
+    justify-content: center;
     height: 100vh;
     margin-bottom: 32px;
+    animation: ${fadeIn} 2s;
+    overflow: hidden;
 `;
 
-const StyledNavContainer = styled.div`
+const StyledNav = styled.nav`
+    animation: ${fadeIn} 2s;
+    display: flex;
+    background-color: rgba(50, 50, 50, 1);
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
     position: fixed;
     top: 0;
-    right: 0;
-    height: 70px;
-    padding: 35px 40px;
+    z-index: 1;
+    padding: 15px 40px;
+
+    @media(max-width: 425px) {
+        padding: 15px;
+    }
 `;
 
 const StyledMenuButton = styled.button`
     font-family: 'Open Sans', sans-serif;
-    background: none;
     color: #fff;
+    background: rgba(255, 255, 255, 0);
     border: 1px solid rgba(255, 255, 255, 0.6);
     text-align: center;
     text-transform: uppercase;
@@ -47,60 +60,117 @@ const StyledMenuButton = styled.button`
     border-radius: 4px;
     padding: 0 15px;
     cursor: pointer;
+    transition: background 0.5s ease;
     
     &:hover {
-        color: #212121;
-        background: #fff;
+        color: rgba(33, 33, 33, 1);
+        background: rgba(255, 255, 255, 1);
     }
 `;
 
 const StyledLogoContainer = styled.div`
-    animation: ${fadeIn} 2s;
-    width: 100%;
     display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    padding: 20px;
+    align-items: center
 `;
 
-
 const StyledTitle = styled.h1`
+    animation: ${fadeIn} 2s;
     color: #fff;
+    background-color: rgba(250, 0, 80, 0.9);
+    padding: 20px;
+    border-radius: 4px;
     text-transform: uppercase;
-    font-size: 32px;
+    font-size: 56px;
+    font-weight: 100;
     margin: 0;
+    text-align: center;
+
+    @media(max-width: 425px) {
+        font-size: 24px;
+        border-radius: 0;
+        width: 100%;
+    }
+`;
+
+const StyledSmall = styled.small`
+    font-size: 16px;
+    display: block;
+    margin-bottom: 8px;
+
+    @media(max-width: 425px) {
+        font-size: 12px;
+    }
 `;
 
 const StyledLink = styled(Link) `
     color: #fff;
     text-decoration: none;
+    font-size: 32px;
+    font-weight: 100;
+    text-transform: uppercase;
+
+    @media(max-width: 425px) {
+        font-size: 16px;
+    }
 `;
 
 const StyledProfileImage = styled.img`
     border-radius: 50%;
-    width: 128px;
+    width: 48px;
+    margin-right: 16px;
+    margin-bottom: 0;
+
+    @media(max-width: 425px) {
+        width: 24px;
+        margin-right: 8px;
+    }
 `;
 
 const StyledLogoImage = styled.img`
     margin: 0;
 `;
 
+const StyledScrollArrow = styled(Link)`
+    position: absolute;
+    bottom: 25px;
+    font-family: 'Open Sans', sans-serif;
+    color: rgba(50, 50, 50, 1);
+    background: rgba(50, 50, 50, 0);
+    border: 1px solid rgba(50, 50, 50, 0.6);
+    text-align: center;
+    text-transform: uppercase;
+    font-size: 16px;
+    line-height: 35px;
+    border-radius: 4px;
+    padding: 0 15px;
+    cursor: pointer;
+    transition: background 0.5s ease;
+    text-decoration: none;
+    
+    &:hover {
+        color: rgba(255, 255, 255, 1);
+        background: rgba(50, 50, 50, 1);
+    }
+`;
+
 class Header extends PureComponent {
     render() {
         return (
             <StyledHeader>
-                <StyledNavContainer>
-                    <StyledMenuButton>Menu</StyledMenuButton>
-                </StyledNavContainer>
-                <StyledLogoContainer>
-                    <StyledProfileImage src={profileImage} alt="Dan Andersson" />
-                    <StyledTitle>
+                <StyledNav>
+                    <StyledLogoContainer>
+                        <StyledProfileImage src={profileImage} alt="Dan Andersson" />
                         <StyledLink to="/">
-                            <StyledLogoImage src={logoImage} alt="Dan Andersson" />
+                            <strong>Dan</strong>Andersson
                         </StyledLink>
-                    </StyledTitle>
-                </StyledLogoContainer>
+                    </StyledLogoContainer>
+                    <StyledMenuButton>Menu</StyledMenuButton>
+                </StyledNav>
+                <StyledTitle>
+                    <StyledSmall>Thoughts, stories and ideas of a</StyledSmall>
+                    <strong>JavaScript</strong>Developer
+                </StyledTitle>
+                <StyledScrollArrow to="#content">Scroll Down</StyledScrollArrow>
             </StyledHeader>
         )
     }
