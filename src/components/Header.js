@@ -16,10 +16,11 @@ const fadeIn = keyframes`
 `;
 
 const StyledHeader = styled.header`
+    position: relative;
     background-color: rgba(60, 60, 60, 1);
     background-image: url(${headerImage});
     background-size: cover;
-    background-repeat: none;   
+    background-repeat: no-repeat;   
     background-position: center;
     font-family: "Lato", sans-serif;
     display: flex;
@@ -40,6 +41,8 @@ const StyledNav = styled.nav`
     width: 100%;
     position: fixed;
     top: 0;
+    left: 0;
+    right: 0;
     z-index: 1;
     padding: 15px 40px;
 
@@ -133,6 +136,9 @@ const StyledLogoImage = styled.img`
 const StyledScrollArrow = styled(Link)`
     position: absolute;
     bottom: 25px;
+    left: calc(50% - 75px);
+    right: calc(50% - 75px);    
+    width: 150px;
     font-family: 'Open Sans', sans-serif;
     color: rgba(50, 50, 50, 1);
     background: rgba(50, 50, 50, 0);
@@ -142,7 +148,6 @@ const StyledScrollArrow = styled(Link)`
     font-size: 16px;
     line-height: 35px;
     border-radius: 4px;
-    padding: 0 15px;
     cursor: pointer;
     transition: background 0.5s ease;
     text-decoration: none;
